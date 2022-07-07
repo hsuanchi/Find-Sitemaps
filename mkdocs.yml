@@ -1,0 +1,9 @@
+site_name: Find-Sitemaps
+nav:
+  - Home: README.md
+  - Contributing: contributing.md
+theme:
+  name: 'material'
+repo_url: https://github.com/hsuanchi/Find-Sitemaps
+remote_branch: gh-pages
+remote_name: origin

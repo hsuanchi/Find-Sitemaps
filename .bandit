@@ -1,0 +1,3 @@
+[bandit]
+targets: Find-Sitemaps
+exclude: tests

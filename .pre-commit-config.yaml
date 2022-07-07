@@ -1,0 +1,54 @@
+default_stages: [push]
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: no-commit-to-branch
+  - repo: https://github.com/hadolint/hadolint
+    rev: v1.22.1
+    hooks:
+      - id: hadolint-docker
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v2.17.13
+    hooks:
+      - id: commitizen
+        stages: [commit-msg]
+
+  - repo: local
+    hooks:
+      - id: style-reformat
+        name: style-reformat
+        stages: [commit]
+        language: system
+        pass_filenames: false
+        entry: inv style.reformat
+        types: [python]
+
+      - id: style-check
+        name: style-check
+        stages: [push]
+        language: system
+        pass_filenames: false
+        entry: inv style
+        types: [python]
+
+      - id: security-check
+        name: security-check
+        stages: [push]
+        language: system
+        pass_filenames: false
+        entry: inv secure
+        types: [python]
+
+      - id: test
+        name: test
+        stages: [push]
+        language: system
+        pass_filenames: false
+        entry: inv test -a
+        types: [python]
