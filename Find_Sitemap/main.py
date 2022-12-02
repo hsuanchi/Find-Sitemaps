@@ -1,62 +1,105 @@
+from Find_Sitemap.tag import slugs_L1, slugs_L2, subdomains, filetypes
 import requests
 
-success_list = []
+#TODO: add split function for sturcture data
+#TODO: add set
 
-subdomains: list[str] = ["shopping.", "24."]
-# subdomains:list[str] = ["sitemap.","sitemaps.","www.",""]
-domain: str = "pchome.com.tw"
-# domain:str = "momoshop.com.tw"
-# domain:str = "pinkoi.com"
-slugs_L1: list[str] = ["/sitemaps", "/sitemap", "/contents", ""]
-slugs_L2: list[str] = [
-    "sitemap",
-    "/sitemaps",
-    "/sitemap",
-    "/sitemap_index",
-    "/sitemap-index",
-    "/sitemapindex",
-    "/index",
-    "/sitemap0",
-    "/sitemap1",
-    "/tag-sitemap",
-    "/category-sitemap",
-    "/post-sitemap",
-    "/page-sitemap",
-    "/product-sitemap",
-]
-filetypes: list = ["xml", "xml.gz", "txt", "php", "jsp"]
-i: int = 0
 
-for subdomain in subdomains:
-    for slug_L1 in slugs_L1:
-        for slug_L2 in slugs_L2:
-            for filetype in filetypes:
-                i += 1
-                url = (
-                    "https://" + subdomain + domain + slug_L1 + slug_L2 + "." + filetype
-                )
-                print(url)
-                try:
-                    r = requests.get(url)
-                    if r.status_code != 200:
-                        continue
-                    content = r.text
-                    print(content[:10])
-                    if content.find("sitemap") == -1:
-                        continue
-                    if content.find("lastmod") == -1:
-                        continue
-                    if content.find("loc") == -1:
-                        continue
 
-                    print("get!!!!!!!!!!!!!!!!!!!!!!!!!", url)
+class FindSitemap:
+    """
+    A class used to find sitemap.xml
 
-                    success_list.append(url)
-                except Exception as e:
-                    print("error")
-                    # pass
+    ...
 
-print("\n\n")
-print("-" * 20)
-print("checked:", i)
-print(success_list)
+    Attributes
+    ----------
+    success_url : list
+        list of success urls
+    total_urls : list
+        list of total urls
+    domain : str
+        the domain that you want to find sitemap.xml
+    slugs_L1 : list
+        the list of slugs_L1 will be check
+    slugs_L2 : list
+        the list of slugs_L2 will be check
+    subdomains : list
+        the list of subdomains will be check
+    filetypes : list
+        the list of filetypes will be check
+
+    Methods
+    -------
+    crawl()
+        Check all the url in total_urls, if the url content mention about keyword
+        (sitemap, lastmod, loc) then add it to success_url
+    """
+
+    def __init__(self, domain):
+        """
+        Parameters
+        ----------
+        success_url : list
+            list of success urls
+        total_urls : list
+            list of total urls
+        domain : str
+            the domain that you want to find sitemap.xml
+        slugs_L1 : list
+            the list of slugs_L1 will be check
+        slugs_L2 : list
+            the list of slugs_L2 will be check
+        subdomains : list
+            the list of subdomains will be check
+        filetypes : list
+            the list of filetypes will be check
+        """
+        self.success_url = []
+        self.total_urls = []
+        self.check_urls: int = 0
+        self.domain = domain
+        self.slugs_L1 = slugs_L1
+        self.slugs_L2 = slugs_L2
+        self.subdomains = subdomains
+        self.filetypes = filetypes
+
+    def _strcture_url(self):
+        for subdomain in self.subdomains:
+            for slug_L1 in self.slugs_L1:
+                for slug_L2 in self.slugs_L2:
+                    for filetype in self.filetypes:
+                        url = f"https://{subdomain}{self.domain}{slug_L1}{slug_L2}.{filetype}"
+                        self.total_urls.append(url)
+        return len(self.total_urls)
+
+    def crawl(self):
+        total_urls_len = self._strcture_url()
+        for url in self.total_urls:
+            self.check_urls += 1
+            try:
+                print(f"{self.check_urls}/{total_urls_len}: {url}")
+                r = requests.get(url)
+                if r.status_code != 200:
+                    continue
+                content = r.text
+                if content.find("sitemap") == -1:
+                    continue
+                if content.find("lastmod") == -1:
+                    continue
+                if content.find("loc") == -1:
+                    continue
+                print(f"get!!!!!!!!!!!!!!!!!!!!!!!!!")
+                self.success_url.append(url)
+            except:
+                pass
+        print("-" * 20)
+        print(f"Success urls: {len(self.success_url)}")
+        print(f"Success urls: {self.success_url}")
+
+
+if __name__ == "__main__":
+    find_sitemap = FindSitemap("maxlist.xyz")
+    # find_sitemap.slugs_L1.append("/node")
+    # find_sitemap.slugs_L1.remove("/node")
+    find_sitemap.crawl()
