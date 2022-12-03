@@ -1,6 +1,6 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 [![License:MIT](https://camo.githubusercontent.com/65a1e1765866b3722ff006952b8c7c5f27ad714b26e7fdc60db79ddbc9923303/68747470733a2f2f626c61636b2e72656164746865646f63732e696f2f656e2f737461626c652f5f7374617469632f6c6963656e73652e737667)](https://github.com/hsuanchi/Find-Sitemaps)
-[![PyPi:Find-Sitemap](https://badge.fury.io/py/Find-Sitemap.svg)](https://github.com/hsuanchi/Find-Sitemaps)
+[![PyPi:Find-Sitemap](https://badge.fury.io/py/Find-Sitemap.svg)](https://pypi.org/project/Find-Sitemap/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 
