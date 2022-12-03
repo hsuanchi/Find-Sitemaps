@@ -1,23 +1,79 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg?style=flat-square)](https://conventionalcommits.org)
+[![License:MIT](https://camo.githubusercontent.com/65a1e1765866b3722ff006952b8c7c5f27ad714b26e7fdc60db79ddbc9923303/68747470733a2f2f626c61636b2e72656164746865646f63732e696f2f656e2f737461626c652f5f7374617469632f6c6963656e73652e737667)](https://github.com/hsuanchi/Find-Sitemaps)
+[![PyPi:Find-Sitemap](https://badge.fury.io/py/Find-Sitemap.svg)](https://github.com/hsuanchi/Find-Sitemaps)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 
-# Find-Sitemaps
+# Find-Sitemap
 
-Short Descirption for Python Project
+Find Sitemap is a simple SEO tool to help you find the sitemap.
+
+```
+>>> from Find_Sitemap import FindSitemap
+>>> main = FindSitemap('google.com')
+>>> main.crawl()
+...
+...
+check 13801/13804: https://google.com/xmap.php
+check 13802/13804: https://google.com/xmap.jsp
+check 13803/13804: https://google.com/xmap.asp
+check 13804/13804: https://google.com/xmap.html
+--------------------
+Find sitemap urls len: 1
+Find sitemap urls list: ['https://www.google.com/sitemap.xml']
+```
 
 ## Getting Started
+Installing Requests on PyPI:
+```
+$ pip install Find-Sitemap
+```
 
 ### Prerequisites
-* [Python](https://www.python.org/downloads/) 3.7+
-* requests
+* [Python](https://www.python.org/downloads/)
+* [requests](https://pypi.org/project/requests/)
 
 ## Usage
+1. Show the slugs, subdomains, filetypes parameters.
+    ```
+    >>> from Find_Sitemap import FindSitemap
+    >>> main = FindSitemap('google.com')
+    >>> main.subdomains
+    {'www.'}
 
+    >>> main.slugs_L1
+    {'/default', '/sitemap', '/feeds', '/api', '/contents' ...}
+
+    >>> main.slugs_L2
+    {'/sitemap', '/stock', '/sitemap1', '/sitemap0', ...}
+
+    >>> main.filetypes
+    {'txt', 'xml', 'xml.gz', 'jsp', 'html', ...}
+    ```
+
+2. Add slugs, subdomains, filetypes parameters by yourself.
+    ```
+    >>> from Find_Sitemap import FindSitemap
+    >>> main = FindSitemap('google.com')
+    >>> main.subdomains.add("shop.")
+    >>> main.slugs_L1.add("/node")
+    >>> main.slugs_L2.add("/site")
+    >>> main.filetypes.add("xml")
+    ```
+
+3. Remove slugs, subdomains, filetypes parameters by yourself.
+    ```
+    >>> from Find_Sitemap import FindSitemap
+    >>> main = FindSitemap('google.com')
+    >>> main.subdomains.remove("shop.")
+    >>> main.slugs_L1.remove("/node")
+    >>> main.slugs_L2.remove("/site")
+    >>> main.filetypes.remove("xml")
+    ```
 
 ## Contributing
-See [Contributing](contributing.md)
+* See [Contributing](contributing.md)
 
 ## Authors
-Max <a0025071@gmail.com>
+* Email: <a0025071@gmail.com>
+* Website: [Max 行銷誌](https://www.maxlist.xyz/)

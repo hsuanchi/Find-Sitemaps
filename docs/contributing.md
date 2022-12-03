@@ -23,12 +23,9 @@ git checkout -b [YOUR FEATURE]
 ### Step 5. Install prerequisite
 
 ```sh
-python -m pip install pipx
-python -m pipx install poetry invoke
-python -m pipx ensurepath
+python -m pip install poetry invoke
 ```
 
-* [pipx](https://github.com/pipxproject/pipx): for python tool management
 * [poetry](https://python-poetry.org/): for dependency management
 * [invoke](https://github.com/pyinvoke/invoke): for task management
 
