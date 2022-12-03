@@ -1,5 +1,6 @@
-subdomains = ["www.", ""]
-slugs_L1 = [
+subdomains = {"www."}
+slugs_L1 = {
+    "",
     "/sitemaps",
     "/sitemap",
     "/sites",
@@ -14,7 +15,7 @@ slugs_L1 = [
     "/digital",
     "/documents",
     "/essentials",
-    "/express",
+    # "/express",
     "/feed",
     "/feeds",
     "/global",
@@ -28,22 +29,19 @@ slugs_L1 = [
     "/assests",
     "/default",
     "/public",
-    "",
-]
-slugs_L2 = [
-    "/sitemaps",
-    "/sitemapls",
+}
+slugs_L2 = {
     "/sitemap",
-    "/sitemap-ssl",
-    "/sitemap_xml",
-    "/sitemap1",
-    "/sitemapAll",
-    "/sitemap_v2",
-    "/sitemap_index",
-    "/sitemap-index",
-    "/sitemapindex",
     "/sitemap0",
     "/sitemap1",
+    "/sitemaps",
+    "/sitemapls",
+    "/sitemapAll",
+    "/sitemap-ssl",
+    "/sitemap_xml",
+    "/sitemap_v2",
+    "/sitemap_index",
+    "/sitemapindex",
     "/stock",
     "/section",
     "/sections",
@@ -65,5 +63,5 @@ slugs_L2 = [
     "/website",
     "/wp-sitemap",
     "/xmap",
-]
-filetypes = ["xml", "xml.gz", "txt", "php", "jsp", "asp", "html"]
+}
+filetypes = {"xml", "xml.gz", "txt", "php", "jsp", "asp", "html"}
