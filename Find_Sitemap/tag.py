@@ -15,7 +15,7 @@ slugs_L1 = {
     "/digital",
     "/documents",
     "/essentials",
-    # "/express",
+    "/express",
     "/feed",
     "/feeds",
     "/global",

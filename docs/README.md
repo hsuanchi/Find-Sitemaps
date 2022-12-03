@@ -34,7 +34,7 @@ $ pip install Find-Sitemap
 * [requests](https://pypi.org/project/requests/)
 
 ## Usage
-1. Show the slugs, subdomains, filetypes parameters.
+1. Show the subdomains, slugs_L1, slugs_L2, filetypes parameters.
     ```
     >>> from Find_Sitemap import FindSitemap
     >>> main = FindSitemap('google.com')
@@ -51,7 +51,7 @@ $ pip install Find-Sitemap
     {'txt', 'xml', 'xml.gz', 'jsp', 'html', ...}
     ```
 
-2. Add slugs, subdomains, filetypes parameters by yourself.
+2. Add the subdomains, slugs_L1, slugs_L2, filetypes parameters.
     ```
     >>> from Find_Sitemap import FindSitemap
     >>> main = FindSitemap('google.com')
@@ -61,7 +61,7 @@ $ pip install Find-Sitemap
     >>> main.filetypes.add("xml")
     ```
 
-3. Remove slugs, subdomains, filetypes parameters by yourself.
+3. Remove the subdomains, slugs_L1, slugs_L2, filetypes parameters.
     ```
     >>> from Find_Sitemap import FindSitemap
     >>> main = FindSitemap('google.com')
@@ -71,6 +71,21 @@ $ pip install Find-Sitemap
     >>> main.filetypes.remove("xml")
     ```
 
+4. Run the crawler.
+    ```
+    >>> from Find_Sitemap import FindSitemap
+    >>> main = FindSitemap('google.com')
+    >>> main.crawl()
+    ...
+    ...
+    check 13801/13804: https://google.com/xmap.php
+    check 13802/13804: https://google.com/xmap.jsp
+    check 13803/13804: https://google.com/xmap.asp
+    check 13804/13804: https://google.com/xmap.html
+    --------------------
+    Find sitemap urls len: 1
+    Find sitemap urls list: ['https://www.google.com/sitemap.xml']
+    ```
 ## Contributing
 * See [Contributing](contributing.md)
 
