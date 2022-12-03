@@ -6,7 +6,7 @@ HERE = pathlib.Path(__file__).parent.resolve()
 PACKAGE_NAME = "Find_Sitemap"
 AUTHOR = "HsuanChi Su"
 AUTHOR_EMAIL = "a0025071@gmail.com"
-URL = "https://www.maxlist.xyz/"
+URL = "https://github.com/hsuanchi/Find-Sitemaps"
 DOWNLOAD_URL = "https://pypi.org/project/Finde-sitemap/"
 
 LICENSE = "MIT"

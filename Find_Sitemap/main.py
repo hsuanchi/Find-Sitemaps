@@ -1,6 +1,4 @@
-from tag import slugs_L1, slugs_L2, subdomains, filetypes
-
-# from Find_Sitemap.tag import slugs_L1, slugs_L2, subdomains, filetypes
+from Find_Sitemap.tag import slugs_L1, slugs_L2, subdomains, filetypes
 import requests
 
 
