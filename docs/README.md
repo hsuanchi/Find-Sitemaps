@@ -92,3 +92,5 @@ $ pip install Find-Sitemap
 ## Authors
 * Email: <a0025071@gmail.com>
 * Website: [Max 行銷誌](https://www.maxlist.xyz/)
+
+echo 'export PATH=/usr/bin/python3/bin:$PATH' >>~/.zshrc
