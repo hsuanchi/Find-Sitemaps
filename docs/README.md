@@ -4,9 +4,9 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 
-# Find-Sitemap
+# **Find-Sitemap**
 
-Find Sitemap is a simple SEO tool to help you find the sitemap.
+**Find Sitemap** is a tool that helps you easily locate sitemaps on any website. It provides a quick and easy way to find the sitemap of a website, even if it is hidden deep within the website's directory structure. It can also detect multiple sitemaps, allowing you to view and analyze all the pages that are included in the site's sitemap.
 
 ```
 >>> from Find_Sitemap import FindSitemap
@@ -14,10 +14,10 @@ Find Sitemap is a simple SEO tool to help you find the sitemap.
 >>> main.crawl()
 ...
 ...
-check 13801/13804: https://google.com/xmap.php
-check 13802/13804: https://google.com/xmap.jsp
-check 13803/13804: https://google.com/xmap.asp
-check 13804/13804: https://google.com/xmap.html
+check 13801/13804: https://google.com/sitemap.xml
+check 13802/13804: https://google.com/feed.xml
+check 13803/13804: https://google.com/sitemap_index.xml
+check 13804/13804: https://google.com/sitemapindex.xml
 --------------------
 Find sitemap urls len: 1
 Find sitemap urls list: ['https://www.google.com/sitemap.xml']
@@ -29,7 +29,7 @@ Installing Requests on PyPI:
 $ pip install Find-Sitemap
 ```
 
-### Prerequisites
+## Prerequisites
 * [Python](https://www.python.org/downloads/)
 * [requests](https://pypi.org/project/requests/)
 
@@ -78,10 +78,10 @@ $ pip install Find-Sitemap
     >>> main.crawl()
     ...
     ...
-    check 13801/13804: https://google.com/xmap.php
-    check 13802/13804: https://google.com/xmap.jsp
-    check 13803/13804: https://google.com/xmap.asp
-    check 13804/13804: https://google.com/xmap.html
+    check 13801/13804: https://google.com/sitemap.xml
+    check 13802/13804: https://google.com/feed.xml
+    check 13803/13804: https://google.com/sitemap_index.xml
+    check 13804/13804: https://google.com/sitemapindex.xml
     --------------------
     Find sitemap urls len: 1
     Find sitemap urls list: ['https://www.google.com/sitemap.xml']
