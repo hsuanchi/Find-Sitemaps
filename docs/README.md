@@ -23,6 +23,8 @@ Find sitemap urls len: 1
 Find sitemap urls list: ['https://www.google.com/sitemap.xml']
 ```
 
+🚀 &nbsp;<b><a href="https://colab.research.google.com/drive/1w5qYNHqmFjVDtXFdHr7SiZsO1ivegpGY?usp=sharing">Try now in Colab</a></b>
+
 ## Getting Started
 Installing Requests on PyPI:
 ```
@@ -89,6 +91,6 @@ $ pip install Find-Sitemap
 ## Contributing
 * See [Contributing](contributing.md)
 
-## Authors
-* Email: <a0025071@gmail.com>
-* Website: https://www.maxlist.xyz/
+## About
+* Author: <a0025071@gmail.com>
+* Website: [How to find the Sitemap of any website?](https://www.maxlist.xyz/2022/12/20/en-how-to-find-sitemap/)
